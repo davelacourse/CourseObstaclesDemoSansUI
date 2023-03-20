@@ -5,8 +5,8 @@ using UnityEngine;
 public class DeplacementGaucheDroite : MonoBehaviour
 {
     private float _positionInitialeX;
-    private float _distanceDeplacementDroite = 17f;
-    private float _vitesseDeplacement = 5f;
+    [SerializeField] private float _distanceDeplacement = 17f;
+    [SerializeField] private float _vitesseDeplacement = 5f;
     private bool _mouvementDroite = true;
 
 
@@ -22,7 +22,7 @@ public class DeplacementGaucheDroite : MonoBehaviour
         {
             _mouvementDroite = true;
         }
-        else if (transform.position.x > (_positionInitialeX + _distanceDeplacementDroite))
+        else if (transform.position.x > (_positionInitialeX + _distanceDeplacement))
         {
             _mouvementDroite = false;
         }

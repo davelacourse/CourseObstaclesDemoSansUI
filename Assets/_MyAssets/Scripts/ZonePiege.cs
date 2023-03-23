@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ZonePiege : MonoBehaviour
 {
@@ -40,8 +41,17 @@ public class ZonePiege : MonoBehaviour
             // et leur applique une force vers le bas
             foreach(var rb in _listeRb)
             {
+                Vector3 direction = Vector3.zero;
                 rb.useGravity = true;  //active la gravité sur le rigidbody
-                Vector3 direction = new Vector3(0f, -100f, 0f); // Établi la direction de la force
+                if (SceneManager.GetActiveScene().name == "Niv2")
+                {
+                    direction = new Vector3(100f, 0, 0f); // Établi la direction de la force
+                }
+                else
+                {
+                    direction = new Vector3(0f, -100f, 0f); // Établi la direction de la force
+                }
+                
                 rb.AddForce(direction * _intensiteForce); // Applique la force sur le rigidbody
             }
             _estActive = true;  // Marque la zone comme activée

@@ -41,10 +41,14 @@ public class Player : MonoBehaviour
      */
     private void MouvementsJoueur()
     {
-        float positionX = Input.GetAxis("Horizontal"); // Récupère la valeur de l'axe horizontal de l'input manager
-        float positionZ = Input.GetAxis("Vertical");  // Récupère la valeur de l'axe vertical de l'input manager
+        float positionX = Input.GetAxisRaw("Horizontal"); // Récupère la valeur de l'axe horizontal de l'input manager
+        float positionZ = Input.GetAxisRaw("Vertical");  // Récupère la valeur de l'axe vertical de l'input manager
         Vector3 direction = new Vector3(positionX, 0f, positionZ);  // Établi la direction du vecteur à appliquer sur le joueur
+        direction.Normalize();
         _rb.velocity = direction * Time.deltaTime * _vitesse;  // Applique la vélocité sur le corps du joueur dans la direction du vecteur
+        
+        
+        
         // _rb.AddForce(direction * Time.fixedDeltaTime * _vitesse);  // Applique une force sur le joueur dans la direction du vecteur
         if (direction != Vector3.zero)
         {

@@ -32,7 +32,7 @@ public class FinPartie : MonoBehaviour
             {
                 int accrochages = _gestionJeu.GetPointage();  // Récupère le pointage total dans gestion jeu
                 float tempsTotalniv1 = _gestionJeu.GetTempsNiv1() + _gestionJeu.GetAccrochagesNiv1();  //Calcul le temps total pour le niveau 1
-                float _tempsNiveau2 = (Time.time - _player.GetTempsDepart())  - _gestionJeu.GetTempsNiv1(); // Calcul le temps pour le niveau 2
+                float _tempsNiveau2 = (Time.time - _player.GetTempsDepart()); // Calcul le temps pour le niveau 2
                 int _accrochagesNiveau2 = _gestionJeu.GetPointage() - _gestionJeu.GetAccrochagesNiv1(); // Calcul le nombre d'accrochages pour le niveau 2
                 float tempsTotalniv2 = _tempsNiveau2 + _accrochagesNiveau2; // Calcul le temps total pour le niveau 2
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GestionJeu : MonoBehaviour
 {
@@ -9,7 +10,8 @@ public class GestionJeu : MonoBehaviour
     private int _pointage = 0;  // Attribut qui conserve le nombre d'accrochages
     private int _accrochageNiveau1 = 0;  // Atribut qui conserve le nombre d'accrochage pour le niveau 1
     private float _tempsNiveau1 = 0.0f;  // Attribut qui conserve le temps pour le niveau 1
-
+    private UIManager _uiManager;
+ 
     // ***** Méthodes privées *****
     private void Awake()
     {
@@ -29,29 +31,36 @@ public class GestionJeu : MonoBehaviour
 
     private void Start()
     {
-        InstructionsDepart();  // Affiche les instructions de départ
+        _uiManager = FindObjectOfType<UIManager>();
+        if (_uiManager != null)
+        {
+            _uiManager.ChangerPointage(0);
+        } 
+        _pointage = 0;
+        Time.timeScale = 1;
     }
 
-    /*
-     * Méthode qui affiche les instructions au départ
-     */
-    private static void InstructionsDepart()
+    private void Update()
     {
-        Debug.Log("*** Course à obstacles");
-        Debug.Log("Le but du jeu est d'atteindre la zone d'arrivée le plus rapidement possible");
-        Debug.Log("Chaque contact avec un obstable entraînera une pénalité");
-        Debug.Log("");
+        if(SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     // ***** Méthodes publiques ******
-    
+
     /*
      * Méthode publique qui permet d'augmenter le pointage de 1
      */
     public void AugmenterPointage()
     {
         _pointage++;
-        Debug.Log(_pointage);
+        if(_uiManager != null)
+        {
+            _uiManager.ChangerPointage(_pointage);
+        }
+        
     }
 
     // Accesseur qui retourne la valeur de l'attribut pointage

@@ -70,6 +70,18 @@ public class Player : MonoBehaviour
 
     public float GetTempsDepart()
     {
-        return _tempsDepart;
+        if ( _tempsDepart == -1)
+        {
+            return 0;
+        }
+        else
+        {
+            return _tempsDepart;
+        }
+    }
+
+    public bool GetABouger()
+    {
+        return _aBouger;
     }
 }

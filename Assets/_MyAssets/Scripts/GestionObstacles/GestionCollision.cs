@@ -38,7 +38,6 @@ public class GestionCollision : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" && !_touche)  // Si l'objet avec la collision s'est produite est le joueur et qu'il n'a pas déjà et touché
         {
-            Debug.Log("Test !!!");
             _touche = true;  // change le booléen à vrai pour indiqué que l'objet a été touché
             gameObject.GetComponent<MeshRenderer>().material = _materielRouge;  //change la couleur du matériel à rouge
             _gestionJeu.AugmenterPointage();  // Appelle la méthode publique dans GestionJeu pour augmenter le pointage

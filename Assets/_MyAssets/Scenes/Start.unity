@@ -207,7 +207,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1752657519}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.7238727
+  m_Size: 0.4621237
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1248,7 +1248,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 773.8342}
+  m_SizeDelta: {x: 0, y: 1224.9199}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &675206136
 GameObject:
@@ -2595,8 +2595,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000061989, y: 41}
-  m_SizeDelta: {x: 1406.9899, y: 577.1575}
+  m_AnchoredPosition: {x: -0.0000061989, y: 38.04651}
+  m_SizeDelta: {x: 1406.9899, y: 583.0645}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1319597005
 MonoBehaviour:
@@ -3032,8 +3032,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -14.880798, y: 78.239105}
-  m_SizeDelta: {x: 1314.8, y: 617.36}
+  m_AnchoredPosition: {x: 0.000061035156, y: 108}
+  m_SizeDelta: {x: 1314.8, y: 924.5271}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1572930704
 MonoBehaviour:
@@ -3056,14 +3056,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "- Le but du jeu est de rejoindre la princesse le plus rapidement possible.\n\n-
-    Le temps pour le niveau d\xE9but\xE9 au premier mouvement du joueur.\n\n- Le
-    joueur peut se d\xE9placer en utilisant les touches W, A, S, D ou les fl\xE8ches
-    de direction du clavier.\n\n- Attention de ne pas accrocher les obstacles, car
-    une p\xE9nalit\xE9 d'une seconde est ajout\xE9e \xE0 votre temps pour chaque
-    accrochage.\n\n- Un obstacle accroch\xE9 devient rouge pendant une p\xE9riode
-    de 4 secondes. Apr\xE8s ce d\xE9lai, celui-ci revient en jeu et ajoutera une
-    seconde suppl\xE9mentaire s'il est accoch\xE9 de nouveau.\n\n- Le jeu prend fin
-    quand tous les niveaux ont \xE9t\xE9 parcourus.\n"
+    Le temps pour le niveau d\xE9bute au premier mouvement du joueur.\n\n- Le joueur
+    peut se d\xE9placer en utilisant les touches W, A, S, D ou les fl\xE8ches de
+    direction du clavier.\n\n- Attention de ne pas accrocher les obstacles, car une
+    p\xE9nalit\xE9 d'une seconde est ajout\xE9e \xE0 votre temps pour chaque accrochage.\n\n-
+    Un obstacle accroch\xE9 devient rouge pendant une p\xE9riode de 4 secondes. Apr\xE8s
+    ce d\xE9lai, celui-ci revient en jeu et ajoutera une seconde suppl\xE9mentaire
+    s'il est accoch\xE9 de nouveau.\n\n- Le jeu prend fin quand tous les niveaux
+    ont \xE9t\xE9 parcourus.\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6d6464423ad273942bf3e45296099417, type: 2}
   m_sharedMaterial: {fileID: 2986864431060501782, guid: 6d6464423ad273942bf3e45296099417, type: 2}
@@ -3325,7 +3325,7 @@ RectTransform:
   m_Father: {fileID: 1571392091}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.27612728}
+  m_AnchorMin: {x: 0, y: 0.5378763}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}

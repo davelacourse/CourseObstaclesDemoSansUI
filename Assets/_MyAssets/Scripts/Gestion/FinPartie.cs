@@ -28,25 +28,10 @@ public class FinPartie : MonoBehaviour
         {
             _finPartie = true; // met le booléen à vrai pour indiquer la fin de la partie
             int noScene = SceneManager.GetActiveScene().buildIndex; // Récupère l'index de la scène en cours
-            if (noScene == (SceneManager.sceneCountInBuildSettings - 1))  // Si nous somme sur la dernière scène
+            if (noScene == (SceneManager.sceneCountInBuildSettings - 2))  // Si nous somme sur la dernière scène
             {
-                int accrochages = _gestionJeu.GetPointage();  // Récupère le pointage total dans gestion jeu
-                float tempsTotalniv1 = _gestionJeu.GetTempsNiv1() + _gestionJeu.GetAccrochagesNiv1();  //Calcul le temps total pour le niveau 1
-                float _tempsNiveau2 = (Time.time - _player.GetTempsDepart()); // Calcul le temps pour le niveau 2
-                int _accrochagesNiveau2 = _gestionJeu.GetPointage() - _gestionJeu.GetAccrochagesNiv1(); // Calcul le nombre d'accrochages pour le niveau 2
-                float tempsTotalniv2 = _tempsNiveau2 + _accrochagesNiveau2; // Calcul le temps total pour le niveau 2
-
-                // Affichage des résultats finaux dans la console
-                Debug.Log("Fin de partie !!!!!!!");
-                Debug.Log("Le temps pour le niveau 1 est de : " + _gestionJeu.GetTempsNiv1().ToString("f2") + " secondes");
-                Debug.Log("Vous avez accroché au niveau 1 : " + _gestionJeu.GetAccrochagesNiv1() + " obstacles");
-                Debug.Log("Temps total niveau 1 : " + tempsTotalniv1.ToString("f2") + " secondes");
-                Debug.Log("Le temps pour le niveau 2 est de : " + _tempsNiveau2.ToString("f2") + " secondes");
-                Debug.Log("Vous avez accroché au niveau 2 : " + _accrochagesNiveau2 + " obstacles");
-                Debug.Log("Temps total niveau 2 : " + tempsTotalniv2.ToString("f2") + " secondes");
-                Debug.Log("Le temps total pour les deux niveau est de : " + (tempsTotalniv1 + tempsTotalniv2).ToString("f2") + " secondes");
- 
-                _player.finPartieJoueur();  // Appeler la méthode publique dans Player pour désactiver le joueur
+               _gestionJeu.SetNiveau2(_gestionJeu.GetPointage(), Time.time - _player.GetTempsDepart());
+                SceneManager.LoadScene(noScene + 1);
             }
             else
             {

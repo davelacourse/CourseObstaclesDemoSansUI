@@ -60,14 +60,6 @@ public class Player : MonoBehaviour
 
     // ***** Méthodes publiques *****
 
-    /*
-     * Méthode appelé en fin de partie qui rend le gameObject Player inactif
-     */
-    public void finPartieJoueur()
-    {
-        gameObject.SetActive(false);  // Désactive le gameObject
-    }
-
     public float GetTempsDepart()
     {
         if ( _tempsDepart == -1)

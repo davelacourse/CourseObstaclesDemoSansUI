@@ -20,6 +20,14 @@ public class UIManager : MonoBehaviour
         _player = FindObjectOfType<Player>();
         _panneauPause.SetActive(false);
         _enPause = false;
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            _txtAccrochages.text = "Accrochages : 0";
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            _txtAccrochages.text = "Accrochages : " + _gestionJeu.GetPointage();
+        }
     }
 
     private void Update()
@@ -48,6 +56,15 @@ public class UIManager : MonoBehaviour
         else if (_player.GetABouger() && SceneManager.GetActiveScene().buildIndex == 1)
         {
             float temps = Time.time - _player.GetTempsDepart();
+            _txtTemps.text = "Temps : " + temps.ToString("f2");
+        }
+        else if(!_player.GetABouger() && SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            _txtTemps.text = "Temps : " + _gestionJeu.GetTempsNiv1().ToString("f2");
+        }
+        else if (_player.GetABouger() && SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            float temps = _gestionJeu.GetTempsNiv1() + (Time.time - _player.GetTempsDepart());
             _txtTemps.text = "Temps : " + temps.ToString("f2");
         }
     }

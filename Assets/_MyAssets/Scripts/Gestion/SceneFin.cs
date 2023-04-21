@@ -14,7 +14,7 @@ public class SceneFin : MonoBehaviour
     private void Start()
     {
         _gestionJeu = FindObjectOfType<GestionJeu>();
-        float temps = _gestionJeu.GetTempsNiv1() + _gestionJeu.GetTempsNiv2();
+        float temps = _gestionJeu.GetTempsNiveau(1) + _gestionJeu.GetTempsNiveau(2);
         _txtTempsTotal.text = "Temps total : " + temps.ToString("f2");
         _txtAccroTotal.text = "Nombres d'accrochages : " + _gestionJeu.GetPointage();
         float total = temps + _gestionJeu.GetPointage();

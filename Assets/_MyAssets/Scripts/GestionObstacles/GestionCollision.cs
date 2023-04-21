@@ -42,7 +42,6 @@ public class GestionCollision : MonoBehaviour
             gameObject.GetComponent<MeshRenderer>().material = _materielRouge;  //change la couleur du matériel à rouge
             _gestionJeu.AugmenterPointage();  // Appelle la méthode publique dans GestionJeu pour augmenter le pointage
             _tempsTouche = Time.time;
-            
         }
     }
 }

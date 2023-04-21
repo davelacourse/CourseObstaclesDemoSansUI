@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class FinPartie : MonoBehaviour
 {
     // ***** Attributs *****
-    
+
+    [SerializeField] private int _idNiveau = 1;
     private bool _finPartie = false;  // booléen qui détermine si la partie est terminée
     private GestionJeu _gestionJeu; // attribut qui contient un objet de type GestionJeu
     private Player _player;  // attribut qui contient un objet de type Player
@@ -28,18 +29,8 @@ public class FinPartie : MonoBehaviour
         {
             _finPartie = true; // met le booléen à vrai pour indiquer la fin de la partie
             int noScene = SceneManager.GetActiveScene().buildIndex; // Récupère l'index de la scène en cours
-            if (noScene == (SceneManager.sceneCountInBuildSettings - 2))  // Si nous somme sur la dernière scène
-            {
-               _gestionJeu.SetNiveau2(_gestionJeu.GetPointage(), Time.time - _player.GetTempsDepart());
-                SceneManager.LoadScene(noScene + 1);
-            }
-            else
-            {
-                // Appelle la méthode publique dans gestion jeu pour conserver les informations du niveau 1
-                _gestionJeu.SetNiveau1(_gestionJeu.GetPointage(), Time.time - _player.GetTempsDepart());
-                // Charge la scène suivante
-                SceneManager.LoadScene(noScene + 1);            
-            }
+            _gestionJeu.SetNiveau(_gestionJeu.GetPointage(), Time.time - _player.GetTempsDepart(), _idNiveau);
+            SceneManager.LoadScene(noScene + 1);
         }
     }
 }

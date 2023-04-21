@@ -47,9 +47,6 @@ public class Player : MonoBehaviour
         direction.Normalize();
         _rb.velocity = direction * Time.deltaTime * _vitesse;  // Applique la vélocité sur le corps du joueur dans la direction du vecteur
         
-        
-        
-        // _rb.AddForce(direction * Time.fixedDeltaTime * _vitesse);  // Applique une force sur le joueur dans la direction du vecteur
         if (direction != Vector3.zero)
         {
             _aBouger = true;

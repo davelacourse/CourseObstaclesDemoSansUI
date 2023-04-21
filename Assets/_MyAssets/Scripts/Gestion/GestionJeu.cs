@@ -8,10 +8,8 @@ public class GestionJeu : MonoBehaviour
     // ***** Attributs *****
 
     private int _pointage = 0;  // Attribut qui conserve le nombre d'accrochages
-    private int _accrochageNiveau1 = 0;  // Atribut qui conserve le nombre d'accrochage pour le niveau 1
-    private float _tempsNiveau1 = 0.0f;  // Attribut qui conserve le temps pour le niveau 1
-    private int _accrochageNiveau2 = 0;  // Atribut qui conserve le nombre d'accrochage pour le niveau 1
-    private float _tempsNiveau2 = 0.0f;  // Attribut qui conserve le temps pour le niveau 1
+    private int[] listeAccrochages = { 0, 0 };
+    private float[] listeTemps = { 0.0f, 0.0f };
     private UIManager _uiManager;
  
     // ***** Méthodes privées *****
@@ -35,8 +33,6 @@ public class GestionJeu : MonoBehaviour
     {
         _pointage = 0;
         Time.timeScale = 1;
-        
-
     }
 
     private void Update()
@@ -60,7 +56,6 @@ public class GestionJeu : MonoBehaviour
         {
             _uiManager.ChangerPointage(_pointage);
         }
-        
     }
 
     // Accesseur qui retourne la valeur de l'attribut pointage
@@ -70,32 +65,21 @@ public class GestionJeu : MonoBehaviour
     }
 
     // Accesseur qui retourne le temps pour le niveau 1
-    public float GetTempsNiv1()
+    public float GetTempsNiveau(int niveau)
     {
-        return _tempsNiveau1;
+        return listeTemps[niveau-1];
     }
-
-    public float GetTempsNiv2()
-    {
-        return _tempsNiveau2;
-    }
-
+    
     // Accesseur qui retourne le nombre d'accrochages pour le niveau 1
-    public int GetAccrochagesNiv1()
+   public int GetAccrochagesNiveau(int niveau)
     {
-        return _accrochageNiveau1;
+        return listeAccrochages[niveau-1];
     }
 
     // Méthode qui reçoit les valeurs pour le niveau 1 et qui modifie les attributs respectifs
-    public void SetNiveau1(int accrochages, float tempsNiv1)
+    public void SetNiveau(int accrochages, float temps, int niveau)
     {
-        _accrochageNiveau1 = accrochages;
-        _tempsNiveau1 = tempsNiv1;
-    }
-
-    public void SetNiveau2(int accrochages, float tempsNiv1)
-    {
-        _accrochageNiveau2 = accrochages;
-        _tempsNiveau2 = tempsNiv1;
+        listeAccrochages[niveau-1] = accrochages;
+        listeTemps[niveau-1] = temps;
     }
 }

@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text _txtAccrochages = default;
     [SerializeField] private TMP_Text _txtTemps = default;
     [SerializeField] private GameObject _panneauPause = default;
+    
     private bool _enPause;
 
     private GestionJeu _gestionJeu;
@@ -20,6 +21,7 @@ public class UIManager : MonoBehaviour
         _player = FindObjectOfType<Player>();
         _panneauPause.SetActive(false);
         _enPause = false;
+        
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             _txtAccrochages.text = "Accrochages : 0";
@@ -41,11 +43,7 @@ public class UIManager : MonoBehaviour
         {
             FermerPanneau();
         }
-
-
     }
-
-
 
     private void AffichageTemps()
     {
@@ -58,13 +56,13 @@ public class UIManager : MonoBehaviour
             float temps = Time.time - _player.GetTempsDepart();
             _txtTemps.text = "Temps : " + temps.ToString("f2");
         }
-        else if(!_player.GetABouger() && SceneManager.GetActiveScene().buildIndex == 2)
+        else if(!_player.GetABouger() && SceneManager.GetActiveScene().buildIndex != 1)
         {
-            _txtTemps.text = "Temps : " + _gestionJeu.GetTempsNiv1().ToString("f2");
+            _txtTemps.text = "Temps : " + _gestionJeu.GetTempsNiveau(SceneManager.GetActiveScene().buildIndex-1).ToString("f2");
         }
-        else if (_player.GetABouger() && SceneManager.GetActiveScene().buildIndex == 2)
+        else if (_player.GetABouger() && SceneManager.GetActiveScene().buildIndex != 1)
         {
-            float temps = _gestionJeu.GetTempsNiv1() + (Time.time - _player.GetTempsDepart());
+            float temps = _gestionJeu.GetTempsNiveau(SceneManager.GetActiveScene().buildIndex-1) + (Time.time - _player.GetTempsDepart());
             _txtTemps.text = "Temps : " + temps.ToString("f2");
         }
     }
